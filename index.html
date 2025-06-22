@@ -1,668 +1,786 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abhineet Singh - Resume</title>
-    <!-- Font Awesome for icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhineet Singh - Software Engineer</title>
+    
+    <!-- CDN Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-      /* Base styles and variables */
-      :root {
-        --primary-color: #2c5282;
-        --text-color: #333333;
-        --light-gray: #f5f5f5;
-        --medium-gray: #e0e0e0;
-        --spacing-xs: 5px;
-        --spacing-sm: 10px;
-        --spacing-md: 15px;
-        --spacing-lg: 25px;
-        --border-radius: 4px;
-      }
+        :root {
+            --primary-color: #1e293b;
+            --secondary-color: #475569;
+            --accent-color: #0f172a;
+            --light-gray: #f8fafc;
+            --medium-gray: #64748b;
+            --text-dark: #334155;
+            --border-color: #e2e8f0;
+            --success-color: #059669;
+            --info-color: #0284c7;
+            --warning-color: #d97706;
+        }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      body {
-        font-family: "Calibri", "Segoe UI", Arial, sans-serif;
-        line-height: 1.5;
-        color: var(--text-color);
-        background-color: white;
-        margin: 0;
-        padding: 0;
-      }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
+            min-height: 100vh;
+        }
 
-      .resume-container {
-        max-width: 850px;
-        margin: 20px auto;
-        padding: 30px 40px;
-        background-color: white;
-        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-      }
+        .resume-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
 
-      /* Header styles */
-      .header {
-        text-align: center;
-        margin-bottom: var(--spacing-lg);
-        padding-bottom: var(--spacing-md);
-        border-bottom: 1px solid var(--medium-gray);
-      }
+        .resume-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
 
-      .name {
-        font-size: 32px;
-        font-weight: bold;
-        color: var(--primary-color);
-        letter-spacing: 1px;
-        margin-bottom: var(--spacing-sm);
-        text-transform: uppercase;
-      }
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
 
-      .contact-info {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-        margin-top: var(--spacing-md);
-      }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
 
-      .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        font-size: 14px;
-      }
+        .profile-avatar i {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
 
-      .contact-item i {
-        color: var(--primary-color);
-        font-size: 16px;
-      }
+        .name-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
 
-      /* Section styles */
-      .section {
-        margin-bottom: var(--spacing-lg);
-      }
+        .name-title .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
 
-      .section-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: var(--spacing-md);
-      }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-      .section-title {
-        font-size: 18px;
-        font-weight: bold;
-        color: var(--primary-color);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        position: relative;
-        padding-right: 15px;
-      }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            align-content: stretch;
+            flex-wrap: nowrap;
+            flex-direction: column;
+        }
 
-      .section-line {
-        flex-grow: 1;
-        height: 2px;
-        background-color: var(--primary-color);
-        opacity: 0.7;
-      }
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
 
-      /* Summary styles */
-      .summary {
-        text-align: justify;
-        margin-bottom: var(--spacing-lg);
-        font-size: 14px;
-        line-height: 1.6;
-      }
+        .contact-item i {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
 
-      /* Skills styles */
-      .skills-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--spacing-md);
-        margin-bottom: var(--spacing-md);
-      }
+        /* Content Sections */
+        .content-section {
+            padding: 2rem;
+        }
 
-      .skill-category {
-        flex: 1;
-        min-width: 200px;
-      }
+        .section {
+            margin-bottom: 3rem;
+        }
 
-      .skill-category-title {
-        font-weight: bold;
-        margin-bottom: var(--spacing-xs);
-        color: var(--primary-color);
-        font-size: 14px;
-      }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+        }
 
-      .skill-list {
-        list-style-type: none;
-        font-size: 14px;
-      }
+        .section-header i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
 
-      .skill-item {
-        margin-bottom: var(--spacing-xs);
-      }
+        .section-header h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0;
+        }
 
-      .highlight {
-        font-weight: bold;
-      }
+        /* Professional Summary */
+        .summary-card {
+            background: var(--light-gray);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--info-color);
+        }
 
-      /* Experience styles */
-      .experience-item {
-        margin-bottom: var(--spacing-md);
-        position: relative;
-      }
+        .summary-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 0;
+            color: var(--text-dark);
+        }
 
-      .job-header {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: var(--spacing-xs);
-        align-items: baseline;
-      }
+        /* Skills Grid */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
 
-      .job-title {
-        font-weight: bold;
-        font-size: 16px;
-        color: var(--text-color);
-      }
+        .skill-category-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
 
-      .job-duration {
-        font-style: italic;
-        font-size: 14px;
-        color: var(--primary-color);
-      }
+        .skill-category-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
 
-      .company-name {
-        font-weight: bold;
-        font-size: 15px;
-        margin-bottom: var(--spacing-xs);
-      }
+        .skill-category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
 
-      .job-responsibilities {
-        list-style-type: disc;
-        margin-left: 20px;
-        font-size: 14px;
-      }
+        .skill-category-header i {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
 
-      .job-responsibilities li {
-        margin-bottom: var(--spacing-xs);
-      }
+        .skill-category-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0;
+        }
 
-      /* Education styles */
-      .education-item {
-        margin-bottom: var(--spacing-md);
-      }
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
 
-      .degree {
-        font-weight: bold;
-        font-size: 15px;
-      }
+        .skill-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-      .school-info {
-        display: flex;
-        justify-content: space-between;
-        font-size: 14px;
-        margin-bottom: var(--spacing-xs);
-      }
+        .skill-badge:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
 
-      .school-name {
-        font-weight: bold;
-      }
+        /* Experience Cards */
+        .experience-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--success-color);
+            transition: all 0.3s ease;
+        }
 
-      .grade {
-        font-style: italic;
-      }
+        .experience-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
 
-      /* Projects styles */
-      .project-item {
-        margin-bottom: var(--spacing-md);
-      }
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
-      .project-name {
-        font-weight: bold;
-        font-size: 15px;
-      }
+        .company-info h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
 
-      .project-description {
-        font-style: italic;
-        margin-bottom: var(--spacing-xs);
-        font-size: 14px;
-      }
+        .position-title {
+            color: var(--success-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
 
-      .project-details {
-        list-style-type: disc;
-        margin-left: 20px;
-        font-size: 14px;
-      }
+        .duration-badge {
+            background: var(--warning-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
 
-      .project-details li {
-        margin-bottom: var(--spacing-xs);
-      }
+        .project-section {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: 8px;
+            border-left: 3px solid var(--info-color);
+        }
 
-      /* Certifications styles */
-      .certification-list {
-        list-style-type: disc;
-        margin-left: 20px;
-        font-size: 14px;
-      }
+        .project-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
 
-      /* Utility classes */
-      .mb-sm {
-        margin-bottom: var(--spacing-sm);
-      }
+        .tech-stack {
+            color: var(--medium-gray);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements-list li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .achievements-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-size: 0.875rem;
+        }
+
+        /* Education Cards */
+        .education-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--info-color);
+        }
+
+        .degree-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .institution-name {
+            color: var(--info-color);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .year-grade-info {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .certification-card {
+            background: linear-gradient(135deg, #ffffff 0%, var(--light-gray) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .certification-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .certification-card i {
+            color: var(--warning-color);
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .certification-text {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 1rem auto;
+                padding: 0.5rem;
+            }
+
+            .header-section {
+                padding: 2rem 1rem;
+            }
+
+            .name-title h1 {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(15, 23, 42, 0.1);
+            z-index: 1000;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--info-color));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Animation Classes */
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
-  </head>
-  <body>
-    <div class="resume-container">
-      <!-- Header -->
-      <div class="header">
-        <div class="name">Abhineet Singh</div>
-        <div class="contact-info">
-          <div class="contact-item">
-            <span>📍 Noida, India</span>
-          </div>
-          <div class="contact-item">
-            <span>📱+91 7999567778</span>
-          </div>
-          <div class="contact-item">
-            <span>✉️ abhineet9singh@gmail.com</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Professional Summary -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-title">Professional Summary</div>
-          <div class="section-line"></div>
-        </div>
-        <div class="summary">
-          Experienced <span class="highlight">Software Engineer</span> with over
-          <span class="highlight">6 years</span> in full-stack development,
-          specializing in <span class="highlight">PHP frameworks</span> (Yii2,
-          CodeIgniter), database management, and web technologies. Skilled in
-          optimizing large-scale processes, reducing execution time, and
-          improving application performance. Proficient in mentoring teams and
-          implementing technical solutions. Certified in "<span
-            class="highlight"
-            >Programming in C++</span
-          >" by NPTEL-IIT Kharagpur.
-        </div>
-      </div>
-
-      <!-- Technical Skills -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-title">Technical Skills</div>
-          <div class="section-line"></div>
-        </div>
-        <div class="skills-container">
-          <div class="skill-category">
-            <div class="skill-category-title">Languages</div>
-            <ul class="skill-list">
-              <li class="skill-item">
-                <span class="highlight">PHP</span>, JavaScript, HTML, CSS,
-                <span class="highlight">SQL</span>, Java, C++
-              </li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <div class="skill-category-title">Frameworks</div>
-            <ul class="skill-list">
-              <li class="skill-item">
-                <span class="highlight">Yii2</span>,
-                <span class="highlight">CodeIgniter</span>
-              </li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <div class="skill-category-title">Database</div>
-            <ul class="skill-list">
-              <li class="skill-item"><span class="highlight">MySQL</span></li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <div class="skill-category-title">Frontend</div>
-            <ul class="skill-list">
-              <li class="skill-item">jQuery, Bootstrap, Chart.js, Vue.js</li>
-            </ul>
-          </div>
-        </div>
-        <div class="skills-container">
-          <div class="skill-category">
-            <div class="skill-category-title">API Integration</div>
-            <ul class="skill-list">
-              <li class="skill-item">
-                Google API, Matomo, Open Web Analytics, AWS S3, Cloudinary
-              </li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <div class="skill-category-title">DevOps</div>
-            <ul class="skill-list">
-              <li class="skill-item">Git, Gitlab, Bitbucket, Cron Jobs</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <div class="skill-category-title">Project Management</div>
-            <ul class="skill-list">
-              <li class="skill-item">Jira</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <div class="skill-category-title">Operating Systems</div>
-            <ul class="skill-list">
-              <li class="skill-item">Linux, Windows</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Professional Experience -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-title">Professional Experience</div>
-          <div class="section-line"></div>
-        </div>
-
-        <!-- Job 1 -->
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Software Engineer</div>
-            <div class="job-duration">Sep 2022 - Present</div>
-          </div>
-          <div class="company-name">Hybrent Technologies Pvt Ltd</div>
-          <ul class="job-responsibilities">
-            <li>
-              Optimized large-scale Yii2 processes, reducing execution time from
-              <span class="highlight">70 hours to 34 minutes</span> for 2000+
-              facility records
-            </li>
-            <li>
-              Improved performance of inventory, vendor, and stock status
-              modules across <span class="highlight">50M+ records</span>
-            </li>
-            <li>Designed and refactored existing logic for multiple modules</li>
-            <li>
-              Mentored a UI team of
-              <span class="highlight">6 engineers</span> for backend development
-              work
-            </li>
-            <li>Upgraded libraries to address security vulnerabilities</li>
-            <li>
-              Executed procurement & inventory management system refinements for
-              healthcare industry clients
-            </li>
-          </ul>
-        </div>
-
-        <!-- Job 2 -->
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Software Engineer</div>
-            <div class="job-duration">April 2021 - Sep 2022</div>
-          </div>
-          <div class="company-name">Appinventiv Technology Pvt Ltd</div>
-          <ul class="job-responsibilities">
-            <li>
-              Enhanced HRMS Dashboard with new module development and
-              performance improvements
-            </li>
-            <li>
-              Optimized project management module for better performance and
-              user experience
-            </li>
-            <li>
-              Developed API for organization's job portal to sync data with
-              backend HRMS
-            </li>
-            <li>
-              Implemented technical solutions using
-              <span class="highlight">PHP, MySQL, jQuery, HTML, CSS</span> on
-              CodeIgniter Framework
-            </li>
-            <li>
-              Managed code through Bitbucket, Gitlab, and task management
-              through Jira
-            </li>
-          </ul>
-        </div>
-
-        <!-- Job 3 -->
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Web Developer</div>
-            <div class="job-duration">June 2019 - April 2021</div>
-          </div>
-          <div class="company-name">Handysolver Pvt. Ltd.</div>
-          <ul class="job-responsibilities">
-            <li>
-              Executed
-              <span class="highlight">full-stack development</span> using Yii2
-              PHP framework
-            </li>
-            <li>
-              Managed <span class="highlight">database architecture</span> and
-              backend development for multiple projects
-            </li>
-            <li>
-              Implemented web applications using
-              <span class="highlight">Yii2, PHP, MySQL, jQuery, HTML, CSS</span
-              >, and API integration
-            </li>
-            <li>
-              Collaborated with team using Git version control through Bitbucket
-              and Gitlab
-            </li>
-          </ul>
-        </div>
-
-        <!-- Job 4 -->
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Intern</div>
-            <div class="job-duration">May 2019 - June 2019</div>
-          </div>
-          <div class="company-name">AccentsJournal</div>
-          <ul class="job-responsibilities">
-            <li>
-              Enhanced website admin panel using core PHP, MySQL, HTML, and CSS
-            </li>
-            <li>
-              Implemented security features including captcha functionality
-            </li>
-            <li>
-              Added visits counter functionality and PDF data extraction
-              capabilities
-            </li>
-          </ul>
-        </div>
-
-        <!-- Job 5 -->
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Intern</div>
-            <div class="job-duration">Feb 2019 - May 2019</div>
-          </div>
-          <div class="company-name">TargetIcon Digital Services Pvt. Ltd</div>
-          <ul class="job-responsibilities">
-            <li>Trained in core PHP, MySQL, JavaScript, HTML, and CSS</li>
-            <li>
-              Contributed to WordPress and OpenCart projects, updating content
-              and testing responsive components
-            </li>
-            <li>
-              Gained experience in organizational workflow and modern web
-              technologies
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Education -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-title">Education</div>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="education-item">
-          <div class="degree">
-            <span class="highlight"
-              >Bachelor of Engineering in Computer Science and Engineering</span
-            >
-          </div>
-          <div class="school-info">
-            <div class="school-name">
-              Patel College of Science and Technology, Bhopal
-            </div>
-            <div class="grade">CGPA: 7.86</div>
-          </div>
-          <div class="job-duration">2015 - 2019</div>
-        </div>
-
-        <div class="education-item">
-          <div class="degree">Class XII (CBSE)</div>
-          <div class="school-info">
-            <div class="school-name">Gulmohar Public School, Kanpur</div>
-            <div class="grade">Percentage: 71.8%</div>
-          </div>
-          <div class="job-duration">2014</div>
-        </div>
-
-        <div class="education-item">
-          <div class="degree">Class X (CBSE)</div>
-          <div class="school-info">
-            <div class="school-name">Gulmohar Public School, Kanpur</div>
-            <div class="grade">Percentage: 83.6%</div>
-          </div>
-          <div class="job-duration">2012</div>
-        </div>
-      </div>
-
-      <!-- Key Projects -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-title">Key Projects</div>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="project-item">
-          <div class="project-name">Hybrent</div>
-          <div class="project-description">
-            Procurement & Inventory Management System for Healthcare
-          </div>
-          <ul class="project-details">
-            <li>
-              Refined requirements, developed features, designed database
-              architecture, and created documentation
-            </li>
-            <li>
-              Technologies:
-              <span class="highlight"
-                >CodeIgniter 3, PHP, SQL, HTML, CSS, Bootstrap, jQuery, Cron
-                Jobs, API</span
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div class="project-item">
-          <div class="project-name">Human Resource Management System</div>
-          <div class="project-description">
-            Enterprise Workflow Management Portal
-          </div>
-          <ul class="project-details">
-            <li>
-              Gathered requirements, developed modules, managed database,
-              integrated design, and deployed solutions
-            </li>
-            <li>
-              Technologies:
-              <span class="highlight"
-                >CodeIgniter 3, PHP, SQL, HTML, CSS, Bootstrap, jQuery, Cron
-                Jobs, API</span
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div class="project-item">
-          <div class="project-name">Gamification Guru</div>
-          <div class="project-description">Interactive Quiz Platform</div>
-          <ul class="project-details">
-            <li>
-              Developed and enhanced interactive quiz games with comprehensive
-              management features
-            </li>
-            <li>
-              Technologies:
-              <span class="highlight"
-                >Yii2, PHP, SQL, HTML, CSS, Bootstrap, jQuery, Cron Jobs</span
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div class="project-item">
-          <div class="project-name">Training Pipeline</div>
-          <div class="project-description">
-            Online Learning Management System
-          </div>
-          <ul class="project-details">
-            <li>
-              Built automated training platform with event scheduling and peer
-              feedback functionality
-            </li>
-            <li>
-              Technologies:
-              <span class="highlight"
-                >Yii2, PHP, SQL, HTML, CSS, Bootstrap, jQuery, Cron Jobs</span
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div class="project-item">
-          <div class="project-name">Email Fetch API</div>
-          <div class="project-description">
-            Automated Email Retrieval System
-          </div>
-          <ul class="project-details">
-            <li>
-              Developed API for effective email fetching and search
-              functionality
-            </li>
-            <li>
-              Technologies:
-              <span class="highlight">IMAP, PHP, Yii2, SQL, HTML, CSS</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Certifications -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-title">Certifications</div>
-          <div class="section-line"></div>
-        </div>
-        <ul class="certification-list">
-          <li>
-            <span class="highlight">Programming in C++</span> by NPTEL-IIT,
-            Kharagpur (Roll no: NPTEL18CS32S21150190)
-          </li>
-          <li>
-            <span class="highlight">Programming in Java</span> by NPTEL-IIT,
-            Kharagpur (Roll no: NPTEL19CS07S51200079)
-          </li>
-        </ul>
-      </div>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
     </div>
-  </body>
+
+    <div class="resume-container">
+        <div class="resume-card animate__animated animate__fadeIn">
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="name-title">
+                    <h1>ABHINEET SINGH</h1>
+                    <p class="subtitle">Full-Stack Software Engineer</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Delhi, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 7999567778</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>abhineet9singh@gmail.com</span>
+                    </div>
+                    <div class="contact-item" onclick="window.open('https://linkedin.com/in/abhineet9singh', '_blank')" style="cursor: pointer;">
+                        <i class="fab fa-linkedin"></i>
+                        <span>linkedin.com/in/abhineet9singh</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="content-section">
+                <!-- Professional Summary -->
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-user-tie"></i>
+                        <h2>Professional Summary</h2>
+                    </div>
+                    <div class="summary-card">
+                        <p>Full-Stack Software Engineer with 6+ years of experience in scalable web application development using PHP, MySQL, React.js and Node.js. Adept at leading cross-functional teams, driving technical solutions, and mentoring junior developers. Strong communicator with a focus on planning, collaboration, and continuous improvement in Agile environments.</p>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-code"></i>
+                        <h2>Skills</h2>
+                    </div>
+                    <div class="skills-container">
+                        <div class="skill-category-card">
+                            <div class="skill-category-header">
+                                <i class="fas fa-server"></i>
+                                <h3>Back-End</h3>
+                            </div>
+                            <div class="skill-badges">
+                                <span class="skill-badge">PHP</span>
+                                <span class="skill-badge">MySQL</span>
+                                <span class="skill-badge">RabbitMQ</span>
+                                <span class="skill-badge">Node.js</span>
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">Yii2</span>
+                                <span class="skill-badge">Laravel</span>
+                                <span class="skill-badge">CodeIgniter</span>
+                                <span class="skill-badge">Redis</span>
+                                <span class="skill-badge">C++</span>
+                            </div>
+                        </div>
+                        <div class="skill-category-card">
+                            <div class="skill-category-header">
+                                <i class="fas fa-laptop-code"></i>
+                                <h3>Front-End</h3>
+                            </div>
+                            <div class="skill-badges">
+                                <span class="skill-badge">React.js</span>
+                                <span class="skill-badge">JavaScript</span>
+                                <span class="skill-badge">HTML</span>
+                                <span class="skill-badge">CSS</span>
+                                <span class="skill-badge">jQuery</span>
+                                <span class="skill-badge">Bootstrap</span>
+                                <span class="skill-badge">Chart.js</span>
+                                <span class="skill-badge">Vue.js</span>
+                            </div>
+                        </div>
+                        <div class="skill-category-card">
+                            <div class="skill-category-header">
+                                <i class="fas fa-tools"></i>
+                                <h3>Tools & Technologies</h3>
+                            </div>
+                            <div class="skill-badges">
+                                <span class="skill-badge">Git</span>
+                                <span class="skill-badge">CI/CD</span>
+                                <span class="skill-badge">SonarQube</span>
+                                <span class="skill-badge">Jira</span>
+                                <span class="skill-badge">BitBucket</span>
+                                <span class="skill-badge">Cron Jobs</span>
+                                <span class="skill-badge">Docker</span>
+                                <span class="skill-badge">Google APIs</span>
+                                <span class="skill-badge">Analytics</span>
+                                <span class="skill-badge">AWS S3</span>
+                                <span class="skill-badge">CloudWatch</span>
+                                <span class="skill-badge">Web Sockets</span>
+                                <span class="skill-badge">Web Hooks</span>
+                                <span class="skill-badge">Github Copilot</span>
+                                <span class="skill-badge">Sentry</span>
+                                <span class="skill-badge">Linux</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h2>Experience</h2>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="company-info">
+                                <h3>Hybrent Technologies Pvt Ltd</h3>
+                                <div class="position-title">Software Engineer</div>
+                            </div>
+                            <div class="duration-badge">Sep 2022 - Present</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-title"><i class="fas fa-project-diagram"></i> Technical Project: Hybrent</div>
+                            <div class="tech-stack"><strong>Technologies:</strong> Yii2, PHP, MySQL, React.js, Node.js, Redis, Cloudwatch, SonarQube, RabbitMQ</div>
+                            <p class="mb-2">Procurement & Inventory Management System for Healthcare, Hybrent is acquired by Procurement Partners</p>
+                            <ul class="achievements-list">
+                                <li>Collaborated with product team to refine business requirements, leading to 25% faster feature delivery</li>
+                                <li>Led development, managed database operations, and maintained technical documentation</li>
+                                <li>Reduced execution time from 70 hours to 34 minutes for 2000+ facility records for 50M+ records</li>
+                                <li>Mentored a UI team of 6 engineers to transition into full-stack roles</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="company-info">
+                                <h3>Appinventiv Technology Pvt Ltd</h3>
+                                <div class="position-title">Software Engineer</div>
+                            </div>
+                            <div class="duration-badge">April 2021 - Sep 2022</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-title"><i class="fas fa-project-diagram"></i> Technical Project: Human Resource Management System (HRMS)</div>
+                            <div class="tech-stack"><strong>Technologies:</strong> CodeIgniter 3, PHP, SQL, HTML, CSS, Bootstrap, jQuery, Cron Jobs, API</div>
+                            <ul class="achievements-list">
+                                <li>Gathered requirements, developed modules, managed database, integrated design</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="company-info">
+                                <h3>Handysolver Pvt. Ltd.</h3>
+                                <div class="position-title">Web Developer</div>
+                            </div>
+                            <div class="duration-badge">June 2019 - April 2021</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-title"><i class="fas fa-project-diagram"></i> Technical Project: Gamification Guru (Interactive Learning Quiz Platform)</div>
+                            <div class="tech-stack"><strong>Technologies:</strong> Yii2, PHP, SQL, HTML, CSS, Bootstrap, jQuery, Cron Jobs, Web sockets, Design</div>
+                            <ul class="achievements-list">
+                                <li>Developed and enhanced interactive quiz games with comprehensive management features</li>
+                            </ul>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-title"><i class="fas fa-project-diagram"></i> Technical Project: Training Pipeline (Learning Management System)</div>
+                            <div class="tech-stack"><strong>Technologies:</strong> Laravel, PHP, SQL, HTML, CSS, Bootstrap, jQuery, Cron Jobs, Web Hooks, IMAP</div>
+                            <ul class="achievements-list">
+                                <li>Built automated training platform with event scheduling and peer feedback functionality</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="company-info">
+                                <h3>TargetIcon Digital Services Pvt. Ltd</h3>
+                                <div class="position-title">Intern</div>
+                            </div>
+                            <div class="duration-badge">Feb 2019 - May 2019</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="project-title"><i class="fas fa-project-diagram"></i> Technical Project: Web Applications</div>
+                            <ul class="achievements-list">
+                                <li>Trained in core Node.js, PHP, MySQL, JavaScript, HTML, and CSS</li>
+                                <li>Contributed to Node.js and Wordpress projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h2>Education</h2>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="degree-title">Bachelor of Engineering in Computer Science</div>
+                        <div class="institution-name">RGPV, Bhopal</div>
+                        <div class="year-grade-info">2015 - 2019 | CGPA: 7.86</div>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="degree-title">Class XII (CBSE)</div>
+                        <div class="institution-name">Gulmohar Public School, Kanpur</div>
+                        <div class="year-grade-info">2014 | Percentage: 71.8%</div>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="degree-title">Class X (CBSE)</div>
+                        <div class="institution-name">Gulmohar Public School, Kanpur</div>
+                        <div class="year-grade-info">2012 | Percentage: 83.6%</div>
+                    </div>
+                </div>
+
+                <!-- Certifications Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-certificate"></i>
+                        <h2>Certifications</h2>
+                    </div>
+                    <div class="certifications-grid">
+                        <div class="certification-card">
+                            <i class="fas fa-award"></i>
+                            <span class="certification-text">Programming in C++ by NPTEL-IIT, Kharagpur</span>
+                        </div>
+                        <div class="certification-card">
+                            <i class="fas fa-award"></i>
+                            <span class="certification-text">Programming in Java by NPTEL-IIT, Kharagpur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDN Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('scrollProgressBar').style.width = scrollPercent + '%';
+        });
+
+        // Initialize WOW.js for animations
+        new WOW().init();
+
+        // Smooth scroll for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add intersection observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add hover effects for interactive elements
+        document.querySelectorAll('.skill-badge, .contact-item, .certification-card').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add click effects for cards
+        document.querySelectorAll('.experience-card, .education-card, .skill-category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+    </script>
+</body>
 </html>
